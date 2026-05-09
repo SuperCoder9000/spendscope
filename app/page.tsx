@@ -1,7 +1,9 @@
+import SpendForm from "@/components/form/SpendForm";
+
 export default function Home() {
   return (
-    <main className="min-h-screen bg-black text-white">
-      <section className="flex min-h-screen flex-col items-center justify-center px-6 text-center">
+    <main className="min-h-screen bg-black px-6 py-16 text-white">
+      <section className="mx-auto flex max-w-6xl flex-col items-center text-center">
         <p className="mb-4 text-sm uppercase tracking-[0.3em] text-zinc-400">
           AI Spend Optimization
         </p>
@@ -15,9 +17,7 @@ export default function Home() {
           ChatGPT, Claude, Cursor, Copilot, Gemini, and more.
         </p>
 
-        <button className="mt-8 rounded-xl bg-white px-6 py-3 font-semibold text-black transition hover:scale-105">
-          Audit My AI Spend
-        </button>
+        <SpendForm />
       </section>
     </main>
   );
