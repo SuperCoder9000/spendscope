@@ -13,3 +13,19 @@ Still planning the exact recommendation logic for the audit engine and how to ge
 
 **Plan for tomorrow:**  
 Build the AI spend input form, define pricing schemas for supported tools, and start implementing the audit engine recommendation logic and state persistence.
+
+## Day 2 — 2026-05-09
+
+**Hours worked:** 5
+
+**What I did:**  
+Built the initial AI spend input form and created reusable pricing schemas for supported AI tools including ChatGPT, Claude, Cursor, Copilot, and Gemini. Added TypeScript interfaces for audit data structures and connected the form to the homepage UI. Implemented local storage persistence for form state to preserve inputs across reloads. Started building the audit recommendation engine with initial savings logic and added the first automated tests using Vitest.
+
+**What I learned:**  
+Learned how important centralized data structures are for keeping pricing logic maintainable and reusable across the form and audit engine. Also explored how local state persistence improves user experience significantly for multi-step product flows.
+
+**Blockers / what I'm stuck on:**  
+Still refining the recommendation engine logic to make optimization suggestions feel financially realistic rather than generic rule-based outputs.
+
+**Plan for tomorrow:**  
+Expand the audit engine logic, build a dynamic audit results page, and start integrating AI-generated personalized summaries using an LLM API.
