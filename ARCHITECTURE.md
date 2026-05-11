@@ -1,21 +1,55 @@
-# Architecture Overview
+# SpendScope Architecture
 
-## Stack Choice
+## Frontend
 
-The project uses Next.js with the App Router architecture because it provides a strong fullstack developer experience, server-side rendering capabilities, API routes, and easy deployment on Vercel.
+* Next.js App Router
+* TypeScript
+* Tailwind CSS
+* React Client Components
 
-TypeScript is used for type safety and maintainability.
+## Backend Services
 
-Supabase will be used for backend data storage and lead capture functionality.
+* Supabase (database + persistence)
+* OpenAI API (AI-generated summaries)
+* Resend (planned transactional email flow)
 
-Resend will be used for transactional emails.
+## Core Flow
 
-## Planned Flow
+1. User enters AI tooling details
+2. Audit engine calculates savings opportunities
+3. AI summary is generated
+4. Lead information is captured
+5. Audit data is persisted
+6. Shareable audit reports are generated
 
-1. User lands on the homepage
-2. User fills AI tool spending form
-3. Audit engine processes spend data
-4. Recommendations and savings calculations are generated
-5. AI summary is generated using LLM API
-6. User can save/share report
-7. Lead data stored in database
+## Key Modules
+
+### Audit Engine
+
+Handles:
+
+* savings calculations
+* recommendation generation
+* annual projections
+
+### Lead Capture
+
+Stores:
+
+* email
+* company
+* role
+
+### AI Summary Service
+
+Generates:
+
+* personalized audit summaries
+* optimization recommendations
+* contextual cost-saving insights
+
+## Deployment
+
+* Vercel frontend hosting
+* Supabase managed backend
+* Environment variable configuration for API security

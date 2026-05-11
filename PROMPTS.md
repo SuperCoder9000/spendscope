@@ -1,15 +1,35 @@
-# AI Summary Prompt
+# Prompt Experiments
 
-## System Prompt
+## AI Summary Prompt
 
-You are an AI infrastructure cost optimization assistant helping startups reduce overspending on AI tools.
+Generate a concise AI spend optimization summary for a startup team.
 
-## User Prompt
+Include:
 
-Generate a short professional audit summary for a startup that could save approximately $X per month on AI tooling costs.
+* estimated savings
+* optimization opportunities
+* infrastructure credit considerations
+* actionable recommendations
 
-## Notes
+Keep the tone professional and startup-oriented.
 
-The prompt was intentionally kept concise to reduce hallucinations and encourage focused financial summaries rather than generic marketing language.
+---
 
-Fallback summaries were implemented to gracefully handle API failures and rate limits.
+## Product Messaging Prompt
+
+Write landing page messaging for an AI spend optimization platform targeting startups and engineering teams.
+
+Focus on:
+
+* hidden SaaS costs
+* AI subscription overlap
+* savings visibility
+* operational efficiency
+
+---
+
+## Recommendation Logic Prompt
+
+Suggest realistic optimization recommendations for AI SaaS spending without overestimating savings.
+
+Recommendations should feel financially believable and operationally practical.
