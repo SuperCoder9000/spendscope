@@ -16,3 +16,11 @@ The platform provides instant audit recommendations, personalized AI-generated s
 ## Status
 
 Currently under active development as part of the Credex Web Development Internship Assignment.
+
+## Current Progress
+
+- Landing page implemented
+- AI spend form implemented
+- Audit engine implemented
+- Dynamic audit results page implemented
+- Initial automated test coverage added
