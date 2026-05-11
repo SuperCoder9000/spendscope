@@ -4,7 +4,7 @@ AI Spend Optimization Platform built for the Credex Internship Assignment.
 
 ## Live Demo
 
-https://spendscope-weld.vercel.app
+https://spendscope-6hwk3p7w6-aveerup-dutta.vercel.app
 
 ## Overview
 

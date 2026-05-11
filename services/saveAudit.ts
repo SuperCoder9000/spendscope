@@ -1,5 +1,3 @@
-import { supabase } from "@/lib/supabase";
-
 interface SaveAuditInput {
   teamSize: number;
   useCase: string;
@@ -11,27 +9,19 @@ interface SaveAuditInput {
 export async function saveAudit(
   input: SaveAuditInput
 ) {
-  console.log("SAVE AUDIT INPUT:", input);
+  const response = await fetch("/api/save-audit", {
+    method: "POST",
 
-  const response = await supabase
-    .from("audits")
-    .insert([
-      {
-        team_size: input.teamSize,
-        use_case: input.useCase,
-        total_monthly_savings: input.monthlySavings,
-        total_annual_savings: input.annualSavings,
-        summary: input.summary,
-      },
-    ])
-    .select()
-    .single();
+    headers: {
+      "Content-Type": "application/json",
+    },
 
-  console.log("SUPABASE RESPONSE:", response);
+    body: JSON.stringify(input),
+  });
 
-  if (response.error) {
-    throw response.error;
+  if (!response.ok) {
+    throw new Error("Failed to save audit");
   }
 
-  return response.data;
+  return response.json();
 }

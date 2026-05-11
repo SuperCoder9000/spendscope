@@ -1,4 +1,4 @@
-import { supabase } from "@/lib/supabase";
+import { supabaseAdmin } from "@/lib/supabaseAdmin";
 
 interface Props {
   params: Promise<{
@@ -11,7 +11,7 @@ export default async function SharedAuditPage({
 }: Props) {
   const resolvedParams = await params;
 
-  const { data } = await supabase
+  const { data } = await supabaseAdmin
     .from("audits")
     .select("*")
     .eq("id", resolvedParams.id)
