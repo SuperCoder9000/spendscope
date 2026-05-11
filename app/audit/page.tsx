@@ -1,6 +1,8 @@
 "use client";
 import { formatToolName } from "@/utils/format";
 import { generateAudit } from "@/lib/auditEngine";
+import { useEffect, useState } from "react";
+import LeadCaptureForm from "@/components/form/LeadCaptureForm";
 
 const mockTools = [
   {
@@ -20,7 +22,33 @@ const mockTools = [
 
 export default function AuditPage() {
   const audit = generateAudit(mockTools);
+  const [summary, setSummary] = useState("");
 
+useEffect(() => {
+  async function fetchSummary() {
+    try {
+      const response = await fetch("/api/summary", {
+        method: "POST",
+
+        headers: {
+          "Content-Type": "application/json",
+        },
+
+        body: JSON.stringify({
+          savings: audit.totalMonthlySavings,
+        }),
+      });
+
+      const data = await response.json();
+
+      setSummary(data.summary);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  fetchSummary();
+}, [audit.totalMonthlySavings]);
   return (
     <main className="min-h-screen bg-black px-6 py-16 text-white">
       <div className="mx-auto max-w-5xl">
@@ -49,7 +77,17 @@ export default function AuditPage() {
     </p>
   </div>
 )}
-        </div>
+<div className="mt-8 rounded-2xl border border-zinc-800 bg-zinc-950 p-6">
+  <p className="text-sm uppercase tracking-[0.3em] text-zinc-500">
+    AI Generated Summary
+  </p>
+
+  <p className="mt-4 text-lg leading-relaxed text-zinc-300">
+    {summary || "Generating personalized audit summary..."}
+  </p>
+</div>
+<LeadCaptureForm />
+ </div>
 
         <div className="mt-10 grid gap-6">
           {audit.recommendations.map((rec) => (
