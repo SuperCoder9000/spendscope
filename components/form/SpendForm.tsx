@@ -21,7 +21,7 @@ export default function SpendForm() {
   const router = useRouter();
 
   return (
-    <div className="mt-12 w-full max-w-3xl rounded-2xl border border-zinc-800 bg-zinc-900 p-8">
+    <div className="mt-12 w-full max-w-3xl rounded-3xl border border-zinc-800 bg-zinc-900/80 p-8 shadow-2xl backdrop-blur">
       <h2 className="mb-6 text-2xl font-bold">
         Audit Your AI Stack
       </h2>
@@ -95,7 +95,7 @@ export default function SpendForm() {
 
         <button
   onClick={() => router.push("/audit")}
-  className="rounded-xl bg-white px-6 py-3 font-semibold text-black transition hover:scale-[1.02]"
+  className="rounded-xl bg-white px-6 py-3 font-semibold text-black transition-all duration-300 hover:scale-[1.03] hover:bg-zinc-200 hover:shadow-2xl"
 >
   Generate Audit
 </button>

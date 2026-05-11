@@ -1,26 +1,72 @@
 # SpendScope
 
-SpendScope is an AI spend audit platform that helps startups and engineering teams analyze their AI tooling costs, identify overspending, and discover cost-saving opportunities across products like ChatGPT, Claude, Cursor, Copilot, and Gemini.
+AI Spend Optimization Platform built for the Credex Internship Assignment.
 
-The platform provides instant audit recommendations, personalized AI-generated summaries, shareable reports, and lead generation flows for AI infrastructure optimization services.
+## Overview
+
+SpendScope helps teams analyze AI SaaS spending and identify potential monthly and annual savings across tools like ChatGPT, Cursor, Claude, Gemini, and Copilot.
+
+The platform generates:
+
+* AI spend audits
+* optimization recommendations
+* projected savings insights
+* personalized AI summaries
+
+## Features
+
+* AI spend audit engine
+* Dynamic savings calculations
+* Personalized AI summaries
+* Responsive modern UI
+* Lead capture system
+* Supabase integration
+* Shareable audit reports
+* TailwindCSS-powered design
+* Vitest unit testing
 
 ## Tech Stack
 
-- Next.js
-- TypeScript
-- Tailwind CSS
-- Supabase
-- Resend
-- Vitest
+* Next.js 15
+* TypeScript
+* Tailwind CSS
+* Supabase
+* OpenAI API
+* Vitest
+* Vercel
 
-## Status
+## Installation
 
-Currently under active development as part of the Credex Web Development Internship Assignment.
+```bash
+npm install
+npm run dev
+```
 
-## Current Progress
+## Environment Variables
 
-- Landing page implemented
-- AI spend form implemented
-- Audit engine implemented
-- Dynamic audit results page implemented
-- Initial automated test coverage added
+Create a `.env.local` file:
+
+```env
+NEXT_PUBLIC_SUPABASE_URL=your_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_key
+OPENAI_API_KEY=your_key
+```
+
+## Project Structure
+
+```bash
+app/
+components/
+services/
+lib/
+data/
+tests/
+```
+
+## Deployment
+
+Deployed using Vercel.
+
+## Author
+
+Built by SuperCoder9000

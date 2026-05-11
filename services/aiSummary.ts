@@ -29,11 +29,9 @@ export async function generateAISummary(
       completion.choices[0].message.content ||
       fallbackSummary(savings)
     );
-  } catch (error) {
-    console.error(error);
-
-    return fallbackSummary(savings);
-  }
+  } catch {
+  return fallbackSummary(savings);
+}
 }
 
 function fallbackSummary(savings: number) {

@@ -3,6 +3,7 @@ import { formatToolName } from "@/utils/format";
 import { generateAudit } from "@/lib/auditEngine";
 import { useEffect, useState } from "react";
 import LeadCaptureForm from "@/components/form/LeadCaptureForm";
+import { saveAudit } from "@/services/saveAudit";
 
 const mockTools = [
   {
@@ -23,7 +24,7 @@ const mockTools = [
 export default function AuditPage() {
   const audit = generateAudit(mockTools);
   const [summary, setSummary] = useState("");
-
+  const [auditId, setAuditId] = useState("");
 useEffect(() => {
   async function fetchSummary() {
     try {
@@ -42,22 +43,31 @@ useEffect(() => {
       const data = await response.json();
 
       setSummary(data.summary);
-    } catch (error) {
-      console.error(error);
-    }
+      const savedAudit = await saveAudit({
+  teamSize: 5,
+  useCase: "coding",
+  monthlySavings: audit.totalMonthlySavings,
+  annualSavings: audit.totalAnnualSavings,
+  summary: data.summary,
+});
+
+setAuditId(savedAudit.id);
+    } catch {
+  // silently fail for demo build
+}
   }
 
   fetchSummary();
 }, [audit.totalMonthlySavings]);
   return (
-    <main className="min-h-screen bg-black px-6 py-16 text-white">
+    <main className="min-h-screen bg-black px-4 py-12 text-white sm:px-6 sm:py-16">
       <div className="mx-auto max-w-5xl">
         <div className="rounded-3xl border border-zinc-800 bg-zinc-900 p-10">
           <p className="text-sm uppercase tracking-[0.3em] text-zinc-400">
             Audit Results
           </p>
 
-          <h1 className="mt-4 text-5xl font-bold">
+          <h1 className="mt-4 text-3xl font-bold sm:text-5xl">
             Potential Savings: ${audit.totalMonthlySavings}/mo
           </h1>
 
@@ -83,9 +93,29 @@ useEffect(() => {
   </p>
 
   <p className="mt-4 text-lg leading-relaxed text-zinc-300">
-    {summary || "Generating personalized audit summary..."}
+    {summary ? (
+  summary
+) : (
+  <span className="animate-pulse text-zinc-500">
+    Generating personalized audit summary...
+  </span>
+)}
   </p>
 </div>
+{auditId && (
+  <div className="mt-6 rounded-2xl border border-zinc-800 bg-zinc-950 p-6">
+    <p className="text-sm uppercase tracking-[0.3em] text-zinc-500">
+      Shareable Report
+    </p>
+
+    <a
+      href={`/audit/${auditId}`}
+      className="mt-3 block text-blue-400 underline"
+    >
+      View Public Audit Report
+    </a>
+  </div>
+)}
 <LeadCaptureForm />
  </div>
 
@@ -93,9 +123,9 @@ useEffect(() => {
           {audit.recommendations.map((rec) => (
             <div
               key={formatToolName(rec.tool)}
-              className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6"
+              className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-zinc-700 hover:shadow-2xl"
             >
-              <div className="flex items-start justify-between">
+              <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
                 <div>
                   <h2 className="text-2xl font-semibold capitalize">
                     {formatToolName(rec.tool)}
@@ -117,7 +147,7 @@ useEffect(() => {
                 </div>
               </div>
 
-              <div className="mt-6 flex items-center justify-between rounded-xl bg-black p-4">
+              <div className="mt-6 flex flex-col gap-4 rounded-xl bg-black p-4 sm:flex-row sm:items-center sm:justify-between">
                 <div>
                   <p className="text-sm text-zinc-400">
                     Recommendation

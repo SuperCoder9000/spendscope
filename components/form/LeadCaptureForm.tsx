@@ -63,7 +63,7 @@ export default function LeadCaptureForm() {
 
         <button
           onClick={handleSubmit}
-          className="rounded-xl bg-white px-6 py-3 font-semibold text-black"
+          className="rounded-xl bg-white px-6 py-3 font-semibold text-black transition-all duration-300 hover:scale-[1.02] hover:bg-zinc-200"
         >
           Save Audit
         </button>

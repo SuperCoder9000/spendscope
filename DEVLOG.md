@@ -45,3 +45,37 @@ Still thinking about how to best structure real user-generated audit state betwe
 
 **Plan for tomorrow:**  
 Integrate AI-generated personalized summaries, add backend persistence using Supabase, and begin implementing lead capture and transactional email flows.
+
+## Day 4 — 2026-05-11
+
+**Hours worked:** 6
+
+**What I did:**  
+Integrated AI-generated personalized audit summaries using the OpenAI API with graceful fallback handling for API failures. Created backend API routes for summary generation and connected them to the audit results page. Set up Supabase as the backend database provider and implemented lead capture functionality with persistent storage for audit submissions. Added environment variable configuration for secure API key management and connected the audit flow to real backend infrastructure.
+
+**What I learned:**  
+Learned how important fallback handling and backend reliability are when integrating LLM APIs into user-facing products. Also explored how modern backend-as-a-service platforms like Supabase significantly accelerate MVP development for startup-style applications.
+
+**Blockers / what I'm stuck on:**  
+Still deciding the best architecture for shareable audit URLs and how to structure public audit pages without exposing sensitive lead information.
+
+**Plan for tomorrow:**  
+Implement shareable public audit URLs, transactional email flows using Resend, and improve persistence for dynamic audit report generation.
+
+## Day 5 — 2026-05-12
+
+**Hours worked:** 7
+
+**What I did:**
+Focused heavily on improving the overall product polish, responsiveness, and production-readiness of SpendScope ahead of final submission. Improved the mobile responsiveness of the audit results page and recommendation cards by restructuring layouts for smaller screens. Added smoother hover animations, transitions, and polished CTA interactions across forms and recommendation components. Enhanced the homepage visual design using ambient glow effects, improved typography scaling, glassmorphism-inspired form styling, and better spacing for a more modern SaaS product feel.
+
+Also worked extensively on backend persistence debugging using Supabase. Investigated row-level security policy behavior, environment configuration issues, audit persistence flow failures, and fallback handling for OpenAI API quota errors. Improved graceful degradation behavior to prevent noisy runtime overlays during demo flows and ensured the application remains stable even when external APIs fail.
+
+**What I learned:**
+Learned more about production-focused frontend polish and how small UX details significantly improve perceived product quality. Also gained deeper understanding of Supabase Row Level Security policies, environment variable caching behavior in Next.js, and how graceful fallback handling is critical when integrating unreliable external APIs into user-facing products.
+
+**Blockers / what I'm stuck on:**
+Still facing issues with automated audit persistence due to Supabase RLS conflicts despite successful manual database inserts. Need to further refine the architecture for public audit report persistence and transactional email flows.
+
+**Plan for tomorrow:**
+Complete deployment using Vercel, finalize remaining documentation files, improve final project stability, and prepare the repository and product demo for final internship submission.
