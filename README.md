@@ -2,6 +2,10 @@
 
 AI Spend Optimization Platform built for the Credex Internship Assignment.
 
+## Live Demo
+
+https://spendscope-weld.vercel.app
+
 ## Overview
 
 SpendScope helps teams analyze AI SaaS spending and identify potential monthly and annual savings across tools like ChatGPT, Cursor, Claude, Gemini, and Copilot.
