@@ -1,5 +1,5 @@
 "use client";
-
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { aiTools } from "@/data/pricing";
 
@@ -17,6 +17,8 @@ export default function SpendForm() {
 
   localStorage.setItem("teamSize", value.toString());
 };
+
+  const router = useRouter();
 
   return (
     <div className="mt-12 w-full max-w-3xl rounded-2xl border border-zinc-800 bg-zinc-900 p-8">
@@ -91,9 +93,12 @@ export default function SpendForm() {
           </div>
         </div>
 
-        <button className="rounded-xl bg-white px-6 py-3 font-semibold text-black transition hover:scale-[1.02]">
-          Generate Audit
-        </button>
+        <button
+  onClick={() => router.push("/audit")}
+  className="rounded-xl bg-white px-6 py-3 font-semibold text-black transition hover:scale-[1.02]"
+>
+  Generate Audit
+</button>
       </div>
     </div>
   );
